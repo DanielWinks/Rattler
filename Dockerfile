@@ -44,4 +44,5 @@ COPY --from=builder /etc/udev/rules.d/rtl-sdr.rules /etc/udev/rules.d/rtl-sdr.ru
 
 COPY rootfs /
 
+RUN chmod +x /run.sh
 CMD [ "/run.sh" ]

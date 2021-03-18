@@ -1,6 +1,6 @@
 {
   "name": "Rattler 433",
-  "version": "1.0.23",
+  "version": "1.0.24",
   "slug": "rtl_433_hassio",
   "description": "RTL_433 for Home Assistant",
   "arch": [
@@ -13,7 +13,7 @@
   "startup": "application",
   "boot": "auto",
   "services": [
-    "mqtt:need"
+    "mqtt:want"
   ],
   "map": [
     "share"
@@ -25,7 +25,11 @@
     "customize": {
       "active": false,
       "folder": "rattler"
-    }
+    },
+    "mqtt_host": "",
+    "mqtt_port": 1883,
+    "mqtt_user": "sdr",
+    "mqtt_pass": ""
   },
   "schema": {
     "mqtt_prefix": "str",
@@ -33,6 +37,10 @@
     "customize": {
       "active": "bool",
       "folder": "str?"
-    }
+    },
+    "mqtt_host": "str?",
+    "mqtt_port": "int?",
+    "mqtt_user": "str?",
+    "mqtt_pass": "str?"
   }
 }

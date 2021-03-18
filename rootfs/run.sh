@@ -8,8 +8,29 @@ declare output
 declare prefix
 declare customize_dir
 
+
 if ! bashio::services.available "mqtt"; then
     bashio::log.info "No internal MQTT service found"
+    if bashio::config.has_value "mqtt_host"; then
+        host=$(bashio::config 'mqtt_host')
+    else
+        bashio::log.info "No external MQTT service defined"
+    fi
+    if bashio::config.has_value "mqtt_port"; then
+        port=$(bashio::config 'mqtt_port')
+    else
+        bashio::log.info "No external MQTT service defined"
+    fi
+    if bashio::config.has_value "mqtt_user"; then
+        username=$(bashio::config 'mqtt_user')
+    else
+        bashio::log.info "No external MQTT service defined"
+    fi
+    if bashio::config.has_value "mqtt_pass"; then
+        password=$(bashio::config 'mqtt_pass')
+    else
+        bashio::log.info "No external MQTT service defined"
+    fi
 else
     host=$(bashio::services "mqtt" "host")
     password=$(bashio::services "mqtt" "password")

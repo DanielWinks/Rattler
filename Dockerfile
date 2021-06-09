@@ -2,7 +2,7 @@ ARG BUILD_FROM
 
 FROM scratch as dl_cacher
 
-ADD https://github.com/merbanan/rtl_433/archive/20.11.tar.gz /rtl_433.tar.gz
+ADD https://github.com/merbanan/rtl_433/archive/21.05.tar.gz /rtl_433.tar.gz
 ADD https://github.com/osmocom/rtl-sdr/archive/0.6.0.tar.gz /rtl_sdr.tar.gz
 
 FROM alpine:3.13 as builder

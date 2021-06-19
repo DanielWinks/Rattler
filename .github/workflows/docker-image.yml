@@ -27,14 +27,13 @@ jobs:
 
       - uses: actions/checkout@v2
 
-      - name: Read config.json
-        id: get_version
-        uses: juliangruber/read-file-action@v1
+      - name: get version
+        id: version
+        uses: notiz-dev/github-action-json-property@release
         with:
-          path: ./config.json
-
-      - name: Echo package.json
-        run: echo "${{ steps.get_version.outputs.content.version }}"
+            path: 'config.json'
+            prop_path: 'version'
+      - run: echo ${{steps.version.outputs.prop}}
 
       # - name: Set up QEMU
       #   uses: docker/setup-qemu-action@v1

@@ -1,5 +1,3 @@
-ARG BUILD_FROM
-
 FROM scratch as dl_cacher
 
 ADD https://github.com/merbanan/rtl_433/archive/21.05.tar.gz /rtl_433.tar.gz
@@ -29,7 +27,7 @@ RUN mkdir /build/rtl_433/out && cd /build/rtl_433/out && \
 
 RUN echo 'blacklist dvb_usb_rtl28xxu' > /etc/modprobe.d/blacklist-dvb_usb_rtl28xxu.conf
 
-FROM ${BUILD_FROM}
+FROM alpine:3.13
 
 ENV RTL_OPTS=""
 ENV LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/usr/local/lib64:/usr/local/lib"

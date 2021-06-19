@@ -7,7 +7,6 @@ on:
     types:
       - completed
 
-
 env:
   IMAGE_NAME: dwinks/rattler433
 

@@ -34,7 +34,7 @@ jobs:
           path: ./config.json
 
       - name: Echo package.json
-        run: echo "${{ steps.config.outputs.content.version }}"
+        run: echo "${{ steps.get_version.outputs.content.version }}"
 
       # - name: Set up QEMU
       #   uses: docker/setup-qemu-action@v1

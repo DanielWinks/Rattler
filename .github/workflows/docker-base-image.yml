@@ -1,6 +1,7 @@
 name: Docker Build and Push Base Image
 
 on:
+  workflow_dispatch:
   push:
     paths:
       - 'Dockerfile.base'
